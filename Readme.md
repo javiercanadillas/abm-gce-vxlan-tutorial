@@ -271,7 +271,7 @@ You need to install the following tools on the admin workstation before installi
 To install the tools and prepare for Anthos clusters on bare metal installation run the following commands to download the service account key to the admin workstation and install the required tools:
 
 ```bash
-gcloud compute ssh root@$VM_WS --zone "${ZONE}" --command "bash -s " -- <<EOF
+gcloud compute ssh $VM_WS --zone "${ZONE}" --command "bash -s " -- <<EOF
   set -x
 
   export PROJECT_ID=$(gcloud config get-value project)
@@ -279,7 +279,7 @@ gcloud compute ssh root@$VM_WS --zone "${ZONE}" --command "bash -s " -- <<EOF
   export BMCTL_VERSION
 
   gcloud iam service-accounts keys create bm-gcr.json --iam-account=baremetal-gcr@\$PROJECT_ID.iam.gserviceaccount.com
-  cp bm-gcr.json /root/bm-gcr.json
+  sudo cp bm-gcr.json /root/bm-gcr.json
 
   export STABLE_RELEASE=\$(curl -L -s https://dl.k8s.io/release/stable.txt)
   curl -LO "https://dl.k8s.io/release/\$STABLE_RELEASE/bin/linux/amd64/kubectl"
