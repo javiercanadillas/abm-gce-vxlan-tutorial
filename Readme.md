@@ -467,7 +467,7 @@ Set the current context in an environment variable:
 export CONTEXT="$(kubectl config current-context)"
 ```
 
-Run the following gcloud command, substituting your Qwiklabs account ID for <your-qwiklabs-account-id>:
+Run the following gcloud command, substituting your Qwiklabs account ID for <your-qwiklabs-account-id> (should be the Qwiklabs email address you used to sign in):
 
 ```bash
 GOOGLE_ACCOUNT_EMAIL=<your-qwiklabs-account-id>
@@ -483,12 +483,12 @@ gcloud container fleet memberships generate-gateway-rbac \
 
 This command:
 
-- Grants your user account the Kubernetes `clusterrole/cluster-admin`` role on the cluster.
+- Grants your user account the Kubernetes `clusterrole/cluster-admin` role on the cluster.
 - Configures the cluster so that you can run `kubectl` commands on your local computer without having to ssh to the admin workstation.
 
-When you are finished exploring, enter exit to log out of the admin workstation.
+When you are finished exploring, enter exit twice to log out of the admin workstation.
 
-From the Cloud Shell VM, get the `kubeconfig`` entry that can access the cluster through the Connect gateway:
+**From the Cloud Shell VM**, get the `kubeconfig` entry that can access the cluster through the Connect gateway:
 
 ```bash
 gcloud container fleet memberships get-credentials $CLUSTER_NAME
